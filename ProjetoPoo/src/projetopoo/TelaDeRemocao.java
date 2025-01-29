@@ -55,6 +55,7 @@ public class TelaDeRemocao extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(255, 51, 51));
         jButton4.setText("Deletar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
