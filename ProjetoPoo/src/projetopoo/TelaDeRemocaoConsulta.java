@@ -9,12 +9,12 @@ package projetopoo;
  *
  * @author Daniel
  */
-public class TelaDeRemocao extends javax.swing.JFrame {
+public class TelaDeRemocaoConsulta extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaDeLogin
      */
-    public TelaDeRemocao() {
+    public TelaDeRemocaoConsulta() {
         initComponents();
     }
 

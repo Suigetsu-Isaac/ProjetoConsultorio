@@ -9,12 +9,12 @@ package projetopoo;
  *
  * @author Daniel
  */
-public class TelaDeLogin extends javax.swing.JFrame {
+public class TelaDoUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaDeLogin
      */
-    public TelaDeLogin() {
+    public TelaDoUsuario() {
         initComponents();
     }
 
