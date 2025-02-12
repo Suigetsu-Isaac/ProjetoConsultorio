@@ -3,19 +3,28 @@ package sistemagestaodeconultoriomedico;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Medico {
     private String nome;
     private String senha;
-    private String especialidade;
+    private Especialidade especialidade;
     private String crm;
-    private List<Double> disponibilidade = new ArrayList<>();
+    private Map<String,List<Integer>>  disponibilidade;
+  
 
     // Construtor
-    public Medico(String nome, String especialidade, String crm, List<Double> disponibilidade) {
+    public Medico(String nome, String senha, Especialidade especialidade, String crm, Map<String,List<Integer>> disponibilidade) {
         this.nome = nome;
+        this.senha = senha;
         this.especialidade = especialidade;
         this.crm = crm;
-        this.disponibilidade = disponibilidade; // Corrigido para aceitar uma lista
+        this.disponibilidade = disponibilidade;
+    }
+    
+    public Medico(){
+        
     }
 
     // Getters e Setters
@@ -35,11 +44,11 @@ public class Medico {
         this.senha = senha;
     }
 
-    public String getEspecialidade() {
+    public Especialidade getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
     }
 
@@ -51,12 +60,16 @@ public class Medico {
         this.crm = crm;
     }
 
-    public List<Double> getDisponibilidade() {
+    public Map<String, List<Integer>> getDisponibilidade() {
         return disponibilidade;
     }
 
-    public void setDisponibilidade(List<Double> disponibilidade) {
+    public void setDisponibilidade(Map<String, List<Integer>> disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
-}
+
   
+    
+}
+ 
+

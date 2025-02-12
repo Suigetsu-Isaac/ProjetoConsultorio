@@ -17,7 +17,7 @@ public class JSONManager {
     private static final String PACIENTES_FILE = "pacientes.json";
     private static final String MEDICOS_FILE = "medicos.json";
     private static final String CONSULTAS_FILE = "consultas.json";
-    
+    private static final String ESPECIALIDADE_FILE = "especialidade.json";
     
     private static Gson getGson() {
         return new GsonBuilder()
@@ -60,25 +60,7 @@ public class JSONManager {
     }
 
 
-    // Métodos para Médicos (padrão similar)
-    public static void salvarMedicos(List<Medico> medicos) {
-        Gson gson = getGson();
-        try (FileWriter writer = new FileWriter(MEDICOS_FILE)) {
-            gson.toJson(medicos, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static List<Medico> carregarMedicos() {
-        Gson gson = getGson();
-        try (FileReader reader = new FileReader(MEDICOS_FILE)) {
-            Type tipoLista = new TypeToken<ArrayList<Medico>>() {}.getType();
-            return gson.fromJson(reader, tipoLista);
-        } catch (IOException e) {
-            return new ArrayList<>();
-        }
-    }
+    
 
     // Métodos para Consultas (padrão similar)
     public static void salvarConsultas(List<Consulta> consultas) {
@@ -96,6 +78,73 @@ public class JSONManager {
             Type tipoLista = new TypeToken<ArrayList<Consulta>>() {}.getType();
             return gson.fromJson(reader, tipoLista);
         } catch (IOException e) {
+            return new ArrayList<>();
+        }
+    }
+    
+    
+    public static void salvarEspecialidade(Especialidade especialidade) {
+        List<Especialidade> especialidades = carregarEspecialidades();
+        especialidades.add(especialidade);
+        salvarEspecialidades(especialidades);
+    }
+
+    public static void salvarEspecialidades(List<Especialidade> especialidades) {
+        Gson gson = getGson();
+        try (FileWriter writer = new FileWriter(ESPECIALIDADE_FILE)) {
+            gson.toJson(especialidades, writer);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar especialidades: " + e.getMessage());
+        }
+    }
+
+    public static List<Especialidade> carregarEspecialidades() {
+        Gson gson = getGson();
+        File file = new File(ESPECIALIDADE_FILE);
+        
+        // Se o arquivo não existe ou está vazio, retorna lista vazia
+        if (!file.exists() || file.length() == 0) {
+            return new ArrayList<>();
+        }
+
+        try (FileReader reader = new FileReader(file)) {
+            Type tipoLista = new TypeToken<ArrayList<Especialidade>>(){}.getType();
+            return gson.fromJson(reader, tipoLista);
+        } catch (IOException | JsonSyntaxException e) {
+            System.err.println("Erro ao carregar especialidades: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+     public static void salvarMedico(Medico medico) {
+        List<Medico> medicos = carregarMedicos();
+        medicos.add(medico);
+        salvarMedicos(medicos);
+    }
+
+    public static void salvarMedicos(List<Medico> medicos) {
+        Gson gson = getGson();
+        try (FileWriter writer = new FileWriter(MEDICOS_FILE)) {
+            gson.toJson(medicos, writer);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar medicos: " + e.getMessage());
+        }
+    }
+
+    public static List<Medico> carregarMedicos() {
+        Gson gson = getGson();
+        File file = new File(MEDICOS_FILE);
+        
+        // Se o arquivo não existe ou está vazio, retorna lista vazia
+        if (!file.exists() || file.length() == 0) {
+            return new ArrayList<>();
+        }
+
+        try (FileReader reader = new FileReader(file)) {
+            Type tipoLista = new TypeToken<ArrayList<Medico>>(){}.getType();
+            return gson.fromJson(reader, tipoLista);
+        } catch (IOException | JsonSyntaxException e) {
+            System.err.println("Erro ao carregar medicos: " + e.getMessage());
             return new ArrayList<>();
         }
     }
