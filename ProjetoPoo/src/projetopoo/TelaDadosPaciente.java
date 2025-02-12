@@ -11,12 +11,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 
-public class TelaDeCadastroPaciente extends javax.swing.JFrame {
+public class TelaDadosPaciente extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaDeLogin
      */
-    public TelaDeCadastroPaciente() {
+    public TelaDadosPaciente() {
         initComponents();
     }
 
@@ -64,7 +64,7 @@ public class TelaDeCadastroPaciente extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cadrasto Paciente");
+        jLabel2.setText("Meus Dados");
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -294,7 +294,7 @@ public class TelaDeCadastroPaciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDeCadastroPaciente().setVisible(true);
+                new TelaDadosPaciente().setVisible(true);
             }
         });
     }
