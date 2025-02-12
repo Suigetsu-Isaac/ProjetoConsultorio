@@ -15,7 +15,7 @@ public class TelaDeConsulta extends javax.swing.JFrame {
         
        
         initComponents();
-         System.out.println("tela de consulta");
+         System.out.println("tela de consulta "+medicos.size());
         
         for (Medico m: JSONManager.carregarMedicos()){
             jComboBox1.addItem(m.getNome());

@@ -5,17 +5,24 @@
  */
 package projetopoo;
 
-/**
- *
- * @author Daniel
- */
+import java.util.List;
+import sistemagestaodeconultoriomedico.Especialidade;
+import sistemagestaodeconultoriomedico.JSONManager;
+
+
 public class TelaDoMedicoDados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaDeLogin
-     */
+    List<Especialidade> especialidades = JSONManager.carregarEspecialidades();
     public TelaDoMedicoDados() {
+        
         initComponents();
+        
+        
+        for(Especialidade e:especialidades){
+            jComboBox2.addItem(e.getNome());
+        }
+        
+        
     }
     
     
@@ -121,10 +128,19 @@ public class TelaDoMedicoDados extends javax.swing.JFrame {
         jLabel13.setText("Nome:");
 
         jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setText("jTextField2");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(153, 153, 255));
         jButton3.setText("Deletar conta");
@@ -276,6 +292,14 @@ public class TelaDoMedicoDados extends javax.swing.JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
