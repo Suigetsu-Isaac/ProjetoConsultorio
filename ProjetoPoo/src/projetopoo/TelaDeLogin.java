@@ -242,4 +242,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration                   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ca8f424087a31d96e993507a2d2f7a149b5f540c
