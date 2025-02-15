@@ -1,0 +1,18 @@
+[
+  {
+    "cpf": "123.456.789-00",
+    "data": "1990-05-15",
+    "telefone": "(11) 99999-9999",
+    "nome": "Maria Oliveira",
+    "senha": "senha456",
+    "tipo": "paciente"
+  },
+  {
+    "cpf": "12078029483",
+    "data": "2001-02-22",
+    "telefone": "87981222625",
+    "nome": "Isaac",
+    "senha": "1234",
+    "tipo": "paciente"
+  }
+]

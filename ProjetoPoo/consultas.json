@@ -1,0 +1,330 @@
+[
+  {
+    "paciente": {
+      "cpf": "123.456.789-00",
+      "data": "1990-05-15",
+      "telefone": "(11) 99999-9999",
+      "nome": "Maria Oliveira",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Cardiologia",
+        "descricao": "Especialidade em doenças do coração"
+      },
+      "crm": "CRM/SP-12345",
+      "disponibilidadeRecorrente": {
+        "MONDAY": [
+          "08:00:00",
+          "09:00:00",
+          "10:00:00"
+        ],
+        "WEDNESDAY": [
+          "14:00:00",
+          "15:00:00"
+        ]
+      },
+      "nome": "Dr. Carlos Silva",
+      "tipo": "medico"
+    },
+    "data": "2023-11-25",
+    "hora": "14:00:00",
+    "concluida": false
+  },
+  {
+    "paciente": {
+      "cpf": "123.456.789-00",
+      "data": "1990-05-15",
+      "telefone": "(11) 99999-9999",
+      "nome": "Maria Oliveira",
+      "senha": "senha456",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Clínico Geral",
+        "descricao": "Atendimento geral"
+      },
+      "crm": "CRM/SP-67890",
+      "disponibilidadeRecorrente": {
+        "MONDAY": [
+          "08:00:00",
+          "09:00:00",
+          "10:00:00",
+          "11:00:00",
+          "14:00:00",
+          "15:00:00",
+          "16:00:00"
+        ],
+        "TUESDAY": [
+          "08:00:00",
+          "09:00:00",
+          "10:00:00",
+          "14:00:00",
+          "15:00:00"
+        ],
+        "WEDNESDAY": [
+          "09:00:00",
+          "10:00:00",
+          "14:00:00"
+        ],
+        "SATURDAY": [
+          "09:00:00",
+          "10:00:00",
+          "11:00:00"
+        ]
+      },
+      "nome": "Dra. Ana Costa"
+    },
+    "data": "2025-02-19",
+    "hora": "10:00:00",
+    "concluida": false
+  },
+  {
+    "paciente": {
+      "cpf": "120.780.294-83",
+      "data": "2001-02-22",
+      "telefone": "(87) 98122-2625",
+      "nome": "Isaac",
+      "senha": "1234",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Clínico Geral",
+        "descricao": "Atendimento geral"
+      },
+      "crm": "CRM/SP-67890",
+      "disponibilidadeRecorrente": {
+        "MONDAY": [
+          "08:00:00",
+          "09:00:00",
+          "10:00:00",
+          "11:00:00",
+          "14:00:00",
+          "15:00:00",
+          "16:00:00"
+        ],
+        "TUESDAY": [
+          "08:00:00",
+          "09:00:00",
+          "10:00:00",
+          "14:00:00",
+          "15:00:00"
+        ],
+        "WEDNESDAY": [
+          "09:00:00",
+          "10:00:00",
+          "14:00:00"
+        ],
+        "SATURDAY": [
+          "09:00:00",
+          "10:00:00",
+          "11:00:00"
+        ]
+      },
+      "nome": "Dra. Ana Costa"
+    },
+    "data": "2025-02-18",
+    "hora": "08:00:00",
+    "concluida": false
+  },
+  {
+    "paciente": {
+      "cpf": "12078029483",
+      "data": "2001-02-22",
+      "telefone": "87981222625",
+      "nome": "Isaac2",
+      "senha": "1234",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Dermatologia",
+        "descricao": "Especialidade em cuidados com a pele"
+      },
+      "crm": "CRM/SP-67890",
+      "disponibilidadeRecorrente": {
+        "MONDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "TUESDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "WEDNESDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "SATURDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ]
+      },
+      "nome": "Dra. Ana Costa",
+      "senha": "1234"
+    },
+    "data": "2025-02-18",
+    "hora": "12:00:00",
+    "concluida": false
+  },
+  {
+    "paciente": {
+      "cpf": "12078029483",
+      "data": "2001-02-22",
+      "telefone": "87981222625",
+      "nome": "Isaac2",
+      "senha": "1234",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Dermatologia",
+        "descricao": "Especialidade em cuidados com a pele"
+      },
+      "crm": "CRM/SP-67890",
+      "disponibilidadeRecorrente": {
+        "MONDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "TUESDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "WEDNESDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ],
+        "SATURDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00",
+          "12:30:00",
+          "13:00:00"
+        ]
+      },
+      "nome": "Dra. Ana Costa",
+      "senha": "1234"
+    },
+    "data": "2025-02-17",
+    "hora": "08:30:00",
+    "concluida": false
+  },
+  {
+    "paciente": {
+      "cpf": "123.456.789-00",
+      "data": "1990-05-15",
+      "telefone": "(11) 99999-9999",
+      "nome": "Maria Oliveira",
+      "senha": "senha456",
+      "tipo": "paciente"
+    },
+    "medico": {
+      "especialidade": {
+        "nome": "Cardiologia",
+        "descricao": "Especialidade em doenças do coração"
+      },
+      "crm": "Teste",
+      "disponibilidadeRecorrente": {
+        "SATURDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00"
+        ],
+        "THURSDAY": [
+          "08:00:00",
+          "08:30:00",
+          "09:00:00",
+          "09:30:00",
+          "10:00:00",
+          "10:30:00",
+          "11:00:00",
+          "11:30:00",
+          "12:00:00"
+        ]
+      },
+      "nome": "Isaac",
+      "senha": "1234"
+    },
+    "data": "2025-02-15",
+    "hora": "08:00:00",
+    "concluida": false
+  }
+]
