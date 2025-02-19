@@ -14,12 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import sistemagestaodeconultoriomedico.Consulta;
 import sistemagestaodeconultoriomedico.JSONManager;
+import sistemagestaodeconultoriomedico.Paciente;
 import sistemagestaodeconultoriomedico.SessionManager;
 import sistemagestaodeconultoriomedico.Usuario;
 public class TelaPaciente  extends javax.swing.JFrame{
 
     private Usuario user = SessionManager.getUsuarioLogado();
-
+    private Paciente paciente = pegarPacientes(user.getNome());
     public TelaPaciente() {
          System.out.println("Usuário: " + user.getNome());
     initComponents();
@@ -41,6 +42,13 @@ jPanelConsultas.setBackground(Color.WHITE); // Definir cor de fundo do painel
     
     
     }
+    
+    private Paciente pegarPacientes(String nomePaciente) {
+    return JSONManager.carregarPacientes().stream()
+                 .filter(p -> p.getNome().equalsIgnoreCase(nomePaciente))
+                 .findFirst()
+                 .orElse(null);
+}
 
     
  private void pegarConsulta() {
@@ -50,7 +58,7 @@ jPanelConsultas.setBackground(Color.WHITE); // Definir cor de fundo do painel
 
         // Filtrar consultas do paciente logado
         List<Consulta> consultasPaciente = consultas.stream()
-            .filter(consulta -> consulta.getPaciente().getNome().equals(user.getNome()))
+            .filter(consulta -> consulta.getPaciente().getCpf().equals(paciente.getCpf()))
             .toList();
 
         System.out.println("Consultas do paciente: " + consultasPaciente.size());
