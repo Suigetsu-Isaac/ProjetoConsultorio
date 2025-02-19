@@ -129,7 +129,7 @@ public class TelaDadosPaciente extends javax.swing.JFrame {
         jLabel6.setText("Data de Nascimento");
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +138,7 @@ public class TelaDadosPaciente extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
-        jButton2.setForeground(new java.awt.Color(102, 102, 255));
+        jButton2.setForeground(new java.awt.Color(102, 0, 255));
         jButton2.setText("Atualizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,7 @@ public class TelaDadosPaciente extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
-        jButton3.setForeground(new java.awt.Color(255, 102, 102));
+        jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Deletar Conta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

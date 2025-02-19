@@ -27,7 +27,7 @@ import sistemagestaodeconultoriomedico.Paciente;
 import sistemagestaodeconultoriomedico.SessionManager;
 import sistemagestaodeconultoriomedico.Usuario;
 
-public class TelaConsultaPaciente extends javax.swing.JFrame implements JsonManagerAtributos {
+public class TelaConsultaPaciente extends javax.swing.JFrame{
     
     Usuario user = SessionManager.getUsuarioLogado();
     private List<Medico> medicos = JSONManager.carregarMedicos();

@@ -17,7 +17,7 @@ import sistemagestaodeconultoriomedico.JSONManager;
 import sistemagestaodeconultoriomedico.Medico;
 import sistemagestaodeconultoriomedico.SessionManager;
 import sistemagestaodeconultoriomedico.Usuario;
-public class TelaCadastroMedico extends javax.swing.JFrame implements JsonManagerAtributos {
+public class TelaCadastroMedico extends javax.swing.JFrame {
 
     
    
@@ -407,19 +407,33 @@ public class TelaCadastroMedico extends javax.swing.JFrame implements JsonManage
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         salvarDados();
-        new TelaLogin().setVisible(true);
-        this.dispose();
+        redirecionarLoginOuADM();
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       new TelaLogin().setVisible(true);
-       this.dispose();
+       
+        
+       redirecionarLoginOuADM();
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
+     public void redirecionarLoginOuADM(){
+         if (ehADM()){
+           new TelaADM().setVisible(true);
+           this.dispose();
+       } else{
+        new TelaLogin().setVisible(true);
+       this.dispose();
+       }
+    }
+    
+    public boolean ehADM(){
+        return SessionManager.getUsuarioLogado().getTipo()=="ADM";
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

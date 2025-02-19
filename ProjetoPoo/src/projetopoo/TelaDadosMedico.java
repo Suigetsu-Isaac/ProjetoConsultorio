@@ -17,11 +17,11 @@ import sistemagestaodeconultoriomedico.JSONManager;
 import sistemagestaodeconultoriomedico.Medico;
 import sistemagestaodeconultoriomedico.SessionManager;
 import sistemagestaodeconultoriomedico.Usuario;
-public class TelaDadosMedico extends javax.swing.JFrame implements JsonManagerAtributos {
+public class TelaDadosMedico extends javax.swing.JFrame {
 
     
    private Usuario user = SessionManager.getUsuarioLogado();
-    private Medico medico;
+   private Medico medico;
     private List<Especialidade> especialidades = JSONManager.carregarEspecialidades();
 
     private void pegarMedico() {
@@ -97,28 +97,28 @@ if (!disponibilidade.isEmpty()) {
  private void atualizarDisponibilidade() {
     // Limpar disponibilidade anterior
     medico.getDisponibilidadeRecorrente().clear();
-
-    // Adicionar novos horários para os dias selecionados
-    int horaInicio = (int) jSpinner1.getValue();
-    int horaFim = (int) jSpinner2.getValue();
+    medico.getDisponibilidadeRecorrente().values().clear();
+     System.out.println(medico.getDisponibilidadeRecorrente());
+     System.out.println(medico.getDisponibilidadeRecorrente().size());
+     System.out.println(medico.getDisponibilidadeRecorrente().values());
 
     if (jCheckBox1.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.MONDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.MONDAY);
     }
     if (jCheckBox3.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.TUESDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.TUESDAY);
     }
     if (jCheckBox5.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.WEDNESDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.WEDNESDAY);
     }
     if (jCheckBox8.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.THURSDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.THURSDAY);
     }
     if (jCheckBox10.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.FRIDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.FRIDAY);
     }
     if (jCheckBox11.isSelected()) {
-        medico.adicionarHorarioRecorrente(DayOfWeek.SATURDAY, LocalTime.of(horaInicio, 0), LocalTime.of(horaFim, 0));
+        adicionarHorario(DayOfWeek.SATURDAY);
     }
 }
 
@@ -143,6 +143,7 @@ if (!disponibilidade.isEmpty()) {
         // Salvar no JSON
         JSONManager.atualizarMedico(medico);
         JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
+        dispose();
     }
 
     

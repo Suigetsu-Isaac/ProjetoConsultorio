@@ -27,7 +27,7 @@ import sistemagestaodeconultoriomedico.Paciente;
 import sistemagestaodeconultoriomedico.SessionManager;
 import sistemagestaodeconultoriomedico.Usuario;
 
-public class TelaConsultaMedico extends javax.swing.JFrame implements JsonManagerAtributos {
+public class TelaConsultaMedico extends javax.swing.JFrame{
     
     private Usuario user = SessionManager.getUsuarioLogado();
     private List<Paciente> pacientes = JSONManager.carregarPacientes();
@@ -465,7 +465,7 @@ public class TelaConsultaMedico extends javax.swing.JFrame implements JsonManage
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new TelaPaciente().setVisible(true);
+        new TelaMedico().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

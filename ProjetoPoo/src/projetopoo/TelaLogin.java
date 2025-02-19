@@ -16,11 +16,10 @@ import sistemagestaodeconultoriomedico.Usuario;
  *
  * @author Daniel
  */
-public class TelaLogin extends javax.swing.JFrame implements JsonManagerAtributos{
+public class TelaLogin extends javax.swing.JFrame{
     
-    /**
-     * Creates new form TelaDeLogin
-     */
+    List<Paciente> pacientes = JSONManager.carregarPacientes();
+    List<Medico> medicos = JSONManager.carregarMedicos();
     public TelaLogin() {
         initComponents();
     }

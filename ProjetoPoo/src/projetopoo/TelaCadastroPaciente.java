@@ -11,8 +11,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 import javax.swing.JOptionPane;
+import sistemagestaodeconultoriomedico.SessionManager;
 
-public class TelaCadastroPaciente extends javax.swing.JFrame implements JsonManagerAtributos {
+public class TelaCadastroPaciente extends javax.swing.JFrame {
     
     List<Paciente> pacientes = JSONManager.carregarPacientes();
     
@@ -94,8 +95,13 @@ public class TelaCadastroPaciente extends javax.swing.JFrame implements JsonMana
         jLabel6.setText("Data de Nascimento");
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
         jButton2.setForeground(new java.awt.Color(102, 102, 255));
@@ -282,8 +288,9 @@ public class TelaCadastroPaciente extends javax.swing.JFrame implements JsonMana
         "Sucesso",
         JOptionPane.INFORMATION_MESSAGE);
     
-    this.dispose();
-    new TelaLogin().setVisible(true);
+    
+    
+     redirecionarLoginOuADM();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -299,6 +306,21 @@ public class TelaCadastroPaciente extends javax.swing.JFrame implements JsonMana
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        redirecionarLoginOuADM();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    public void redirecionarLoginOuADM(){
+         if (ehADM()){
+           new TelaADM().setVisible(true);
+           this.dispose();
+       } else{
+        new TelaLogin().setVisible(true);
+       this.dispose();
+       }
+    }
+    
     
     private boolean pacienteExiste(String nome, String cpf) {
     return JSONManager.carregarPacientes().stream()
@@ -360,6 +382,10 @@ public class TelaCadastroPaciente extends javax.swing.JFrame implements JsonMana
             JOptionPane.showMessageDialog(null, "Data inválida! Use o formato dd/MM/aaaa.");
             return null;    
         }
+    }
+    
+    public boolean ehADM(){
+        return SessionManager.getUsuarioLogado().getTipo()=="ADM";
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -77,7 +77,7 @@ public class Medico extends Usuario {
     }
 
     public Map<DayOfWeek, Set<LocalTime>> getDisponibilidadeRecorrente() {
-    return new HashMap<>(disponibilidadeRecorrente); // Retorna uma cópia mutável
+    return disponibilidadeRecorrente;// Retorna uma cópia mutável
 }
 
     public void setDisponibilidadeRecorrente(Map<DayOfWeek, Set<LocalTime>> disponibilidade) {
