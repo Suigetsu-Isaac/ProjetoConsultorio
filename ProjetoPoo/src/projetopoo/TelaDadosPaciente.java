@@ -16,11 +16,11 @@ import sistemagestaodeconultoriomedico.Usuario;
 public class TelaDadosPaciente extends javax.swing.JFrame {
 
     private Usuario user = SessionManager.getUsuarioLogado();
-    private int index;
-    private Paciente paciente;
+  
+    private Paciente paciente = Funcoes.pegarPaciente(user);
     public TelaDadosPaciente() {
         initComponents();
-        pegarPaciente();
+       
         
         jTextField1.setText(paciente.getNome());
         jFormattedTextField2.setText(paciente.getCpf());
@@ -33,27 +33,10 @@ public class TelaDadosPaciente extends javax.swing.JFrame {
         jFormattedTextField2.setEditable(false);
     }
 
-    private void pegarPaciente(){
-        
-        boolean achou = false;
-        for (Paciente p : JSONManager.carregarPacientes()){
-            
-            if (p.getNome().equals(user.getNome())){
-                
-                this.index = JSONManager.carregarPacientes().indexOf(p);
-                
-                paciente = p;
-                achou = true;
-                break;
-            }
-            
-        }
-        if (!achou){
-            JOptionPane.showMessageDialog(null, "deu algum problema");
-        }
+    
         
          
-    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -338,7 +321,7 @@ public class TelaDadosPaciente extends javax.swing.JFrame {
         this.paciente.setTelefone(telefone);
         this.paciente.setSenha(senha);
         this.paciente.setData(dataNasc);
-        JSONManager.editarPaciente(paciente,index);
+        JSONManager.editarPaciente(paciente);
         
         new TelaLogin().setVisible(true);
         dispose();

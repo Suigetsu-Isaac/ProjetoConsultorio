@@ -21,22 +21,10 @@ public class TelaDadosMedico extends javax.swing.JFrame {
 
     
    private Usuario user = SessionManager.getUsuarioLogado();
-   private Medico medico;
+   private Medico medico = Funcoes.pegarMedico(user);
     private List<Especialidade> especialidades = JSONManager.carregarEspecialidades();
 
-    private void pegarMedico() {
-        boolean achou = false;
-        for (Medico m : JSONManager.carregarMedicos()) {
-            if (m.getNome().equals(user.getNome())) {
-                medico = m;
-                achou = true;
-                break;
-            }
-        }
-        if (!achou) {
-            JOptionPane.showMessageDialog(null, "Médico não encontrado.");
-        }
-    }
+
 
     public TelaDadosMedico() {
         initComponents();
@@ -47,7 +35,7 @@ public class TelaDadosMedico extends javax.swing.JFrame {
         }
 
         // Carregar dados do médico
-        pegarMedico();
+    
         if (medico != null) {
             jTextField2.setText(medico.getNome());
             jTextField1.setText(medico.getCrm());

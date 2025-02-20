@@ -385,7 +385,7 @@ public class TelaCadastroPaciente extends javax.swing.JFrame {
     }
     
     public boolean ehADM(){
-        return SessionManager.getUsuarioLogado().getTipo()=="ADM";
+        return "ADM".equals(SessionManager.getUsuarioLogado().getTipo());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

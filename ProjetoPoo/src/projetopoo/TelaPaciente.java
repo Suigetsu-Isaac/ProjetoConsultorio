@@ -20,116 +20,28 @@ import sistemagestaodeconultoriomedico.Usuario;
 public class TelaPaciente  extends javax.swing.JFrame{
 
     private Usuario user = SessionManager.getUsuarioLogado();
-    private Paciente paciente = pegarPacientes(user.getNome());
+    private Paciente paciente = Funcoes.pegarPaciente(user);
     public TelaPaciente() {
          System.out.println("Usuário: " + user.getNome());
     initComponents();
     
-// No construtor ou no método de inicialização
-jPanelConsultas.setBackground(Color.WHITE); // Definir cor de fundo do painel
+    
+    Funcoes.inicializarTelaPrincipal(jPanelConsultas, jScrollPane1, this::pegarConsulta);
+    
 
-    // Configurar o layout do jPanelConsultas
-    jPanelConsultas.setLayout(new java.awt.GridLayout(0, 1)); 
-   
-    jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-    jPanelConsultas.setPreferredSize(new java.awt.Dimension(500, 300));
-   
-// Teste simples para verificar se o painel está funcionando
-    pegarConsulta();
-    jPanelConsultas.revalidate();
-    jPanelConsultas.repaint();
     
     
     }
     
-    private Paciente pegarPacientes(String nomePaciente) {
-    return JSONManager.carregarPacientes().stream()
-                 .filter(p -> p.getNome().equalsIgnoreCase(nomePaciente))
-                 .findFirst()
-                 .orElse(null);
+private void pegarConsulta() {
+    List<Consulta> consultas = Funcoes.carregarConsultas();
+    List<Consulta> consultasPaciente = Funcoes.filtrarConsultasPorPaciente(consultas, paciente);
+    Funcoes.exibirConsultas(consultasPaciente, jPanelConsultas, false);
 }
 
-    
- private void pegarConsulta() {
-        // Carregar todas as consultas do JSON
-        List<Consulta> consultas = JSONManager.carregarConsultas();
-        System.out.println("Total de consultas carregadas: " + consultas.size());
+  
 
-        // Filtrar consultas do paciente logado
-        List<Consulta> consultasPaciente = consultas.stream()
-            .filter(consulta -> consulta.getPaciente().getCpf().equals(paciente.getCpf()))
-            .toList();
 
-        System.out.println("Consultas do paciente: " + consultasPaciente.size());
-
-        // Exibir consultas na interface
-        exibirConsultas(consultasPaciente);
-    }
-
-  private void exibirConsultas(List<Consulta> consultas) {
-    System.out.println("Exibindo consultas no painel...");
-    jPanelConsultas.removeAll(); // Limpar o painel antes de adicionar novas consultas
-
-    for (Consulta consulta : consultas) {
-        System.out.println("Adicionando consulta: " + consulta);
-
-        // Verificar se os dados da consulta não são nulos
-        if (consulta.getMedico() == null || consulta.getHora() == null || consulta.getData() == null) {
-            System.out.println("Dados da consulta incompletos: " + consulta);
-            continue; // Pular para a próxima consulta
-        }
-
-        String medico = consulta.getMedico().getNome();
-        String horario = consulta.getHora().toString();
-        String data = consulta.getData().toString();
-
-        JLabel labelMedico = new JLabel("Médico: " + medico);
-        labelMedico.setForeground(Color.BLACK);
-        JLabel labelHorario = new JLabel("Horário: " + horario);
-        labelHorario.setForeground(Color.BLACK);
-        JLabel labelData = new JLabel("Data: " + data);
-        labelData.setForeground(Color.BLACK);
-
-        JButton btnExcluir = new JButton("Excluir");
-        btnExcluir.addActionListener(e -> verificarExcluirConsulta(consulta));
-
-        // Painel para cada consulta
-        JPanel panelConsulta = new JPanel();
-        panelConsulta.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT)); // Layout horizontal
-        panelConsulta.add(labelMedico);
-        panelConsulta.add(labelHorario);
-        panelConsulta.add(labelData);
-        panelConsulta.add(btnExcluir);
-        panelConsulta.setBackground(Color.WHITE);
-        // Adicionar o painel da consulta ao jPanelConsultas
-        jPanelConsultas.add(panelConsulta);
-    }
-
-    jPanelConsultas.revalidate(); // Atualizar o painel
-    jPanelConsultas.repaint();
-    System.out.println("Painel de consultas atualizado.");
-}
-    
-    private void verificarExcluirConsulta(Consulta consulta){
-        int resposta = JOptionPane.showConfirmDialog(
-    this,
-    "Tem certeza que deseja excluir esta consulta?",
-    "Confirmar Exclusão",
-    JOptionPane.YES_NO_OPTION
-);
-
-if (resposta == JOptionPane.YES_OPTION) {
-    excluirConsulta(consulta);
-}
-    }
-    
-    private void excluirConsulta(Consulta consulta) {
-        // Lógica para excluir a consulta
-        JSONManager.removerConsulta(consulta);
-        pegarConsulta(); // Atualizar a lista de consultas
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -239,37 +151,28 @@ if (resposta == JOptionPane.YES_OPTION) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        
                 TelaDadosPaciente tela = new TelaDadosPaciente();
                 tela.setVisible(true);
                 dispose();
-            }
-        });
+          
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        
+            
                 TelaConsultaPaciente tela= new TelaConsultaPaciente();
                 tela.setVisible(true);
                 dispose();
-            }
-        });
+          
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+       
                 TelaLogin tela = new TelaLogin();
                 tela.setVisible(true);
                 dispose();
-            }
-        });
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
